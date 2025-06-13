@@ -3,22 +3,22 @@ const historyList = document.getElementById('history-list');
 const themeButton = document.getElementById('toggle-theme');
 const body = document.body;
 
-// ✅ Append value to display
+// Append value to display
 function append(value) {
     display.value += value;
 }
 
-// ✅ Clear the display
+// Clear the display
 function clearDisplay() {
     display.value = '';
 }
 
-// ✅ Delete last character
+//  Delete last character
 function deleteLast() {
     display.value = display.value.slice(0, -1);
 }
 
-// ✅ Calculate and add to history
+// Calculate and add to history
 function calculate() {
     try {
         const expression = display.value;
@@ -34,7 +34,7 @@ function calculate() {
     }
 }
 
-// ✅ Percentage Calculation
+// Percentage Calculation
 function percentage() {
     try {
         display.value = eval(display.value) / 100;
@@ -45,7 +45,7 @@ function percentage() {
     }
 }
 
-// ✅ Add calculation to history
+//Add calculation to history
 function addToHistory(entry) {
     const li = document.createElement('li');
     li.textContent = entry;
@@ -59,18 +59,18 @@ function addToHistory(entry) {
     historyList.appendChild(li);
 }
 
-// ✅ Clear History
+// Clear History
 function clearHistory() {
     historyList.innerHTML = '';  // Removes all history items
 }
 
-// ✅ Dark Mode Toggle
+//  Dark Mode Toggle
 themeButton.addEventListener('click', () => {
     body.classList.toggle('dark');
     themeButton.textContent = body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
 });
 
-// ✅ Keyboard Support
+//  Keyboard Support
 document.addEventListener('keydown', (e) => {
     if (e.key >= '0' && e.key <= '9' || ['+', '-', '*', '/'].includes(e.key)) {
         append(e.key);
